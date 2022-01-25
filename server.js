@@ -61,3 +61,17 @@ app.put("/collection/:collectionName/:id", (req, res, next) => {
     }
   );
 });
+
+
+
+// delete an object from mongodb
+app.delete("/collectione/:collectionName/:id", (req, res, next) => {
+  req.collection.deleteOne({ _id: ObjectID(req.params.id) }, (e, result) => {
+    if (e) return next(e);
+    res.send(result.result.n === 1 ? { msg: "success" } : { msg: "error" });
+  });
+});
+
+
+const port = process.env.PORT || 3000;
+app.listen(port);

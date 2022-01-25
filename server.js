@@ -32,3 +32,12 @@ app.get("/collection/:collectionName", (req, res, next) => {
     res.send(results);
   });
 });
+
+
+// adding objects to mongodb collection
+app.post("/collection/:collectionName", (req, res, next) => {
+  req.collection.insert(req.body, (e, results) => {
+    if (e) return next(e);
+    res.send(results.ops);
+  });
+});

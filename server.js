@@ -24,3 +24,11 @@ app.param("collectionName", (req, res, next, collectionName) => {
 app.get("/", (req, res, next) => {
   res.send("Welcome to MongoDB express server.js");
 });
+
+//Retrieve collection with the Get
+app.get("/collection/:collectionName", (req, res, next) => {
+  req.collection.find({}).toArray((e, results) => {
+    if (e) return next(e);
+    res.send(results);
+  });
+});

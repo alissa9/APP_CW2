@@ -12,3 +12,15 @@ MongoClient.connect(
     db = client.db("webstore");
   }
 );
+
+
+//Get the MongoDB collection name
+app.param("collectionName", (req, res, next, collectionName) => {
+  req.collection = db.collection(collectionName);
+  return next();
+});
+
+//Root path response
+app.get("/", (req, res, next) => {
+  res.send("Welcome to MongoDB express server.js");
+});

@@ -1,0 +1,19 @@
+{
+  "name": "app_cw2",
+  "version": "1.0.0",
+  "description": "noder server and express js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alissa9/APP_CW2.git"
+  },
+  "author": "alissa9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alissa9/APP_CW2/issues"
+  },
+  "homepage": "https://github.com/alissa9/APP_CW2#readme"
+}

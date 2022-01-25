@@ -1,7 +1,11 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cors());
 const MongoClient = require("mongodb").MongoClient;
 
 //Connect to MongoDB
@@ -26,6 +30,7 @@ app.get("/", (req, res, next) => {
 
 //Retrieve collection with the Get
 app.get("/collection/:collectionName", (req, res, next) => {
+  console.log("results");
   req.collection.find({}).toArray((e, results) => {
     if (e) return next(e);
     res.send(results);
@@ -34,7 +39,8 @@ app.get("/collection/:collectionName", (req, res, next) => {
 
 // adding objects to mongodb collection
 app.post("/collection/:collectionName", (req, res, next) => {
-  req.collection.insert(req.body, (e, results) => {
+  // console.log(req.body);
+  req.collection.insertOne(req.body, (e, results) => {
     if (e) return next(e);
     res.send(results.ops);
   });

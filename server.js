@@ -55,7 +55,7 @@ app.get("/collection/:collectionName/:id", (req, res, next) => {
   });
 });
 
-// update object in mongodb
+// update objects in mongodb
 app.put("/collection/:collectionName/:id", (req, res, next) => {
   req.collection.update(
     { _id: new ObjectID(req.params.id) },
@@ -69,7 +69,7 @@ app.put("/collection/:collectionName/:id", (req, res, next) => {
 });
 
 // delete an object from mongodb
-app.delete("/collectione/:collectionName/:id", (req, res, next) => {
+app.delete("/collection/:collectionName/:id", (req, res, next) => {
   req.collection.deleteOne({ _id: ObjectID(req.params.id) }, (e, result) => {
     if (e) return next(e);
     res.send(result.result.n === 1 ? { msg: "success" } : { msg: "error" });

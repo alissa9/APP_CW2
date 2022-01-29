@@ -59,7 +59,7 @@ app.get("/collection/:collectionName/:id", (req, res, next) => {
 app.put("/collection/:collectionName/:id", (req, res, next) => {
   req.collection.update(
     { _id: new ObjectID(req.params.id) },
-    { $set: req.body },
+    { $set: { space: req.body.spaces } },
     { safe: true, multi: false },
     (e, result) => {
       if (e) return next(e);

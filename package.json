@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alissa9/APP_CW2.git"
+    "url": "git+https://github.com/alissa9/afterschool-backend.git"
   },
   "author": "alissa9",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alissa9/APP_CW2/issues"
+    "url": "https://github.com/alissa9/afterschool-backend/issues"
   },
-  "homepage": "https://github.com/alissa9/APP_CW2#readme",
+  "homepage": "https://github.com/alissa9/afterschool-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.2",

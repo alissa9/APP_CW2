@@ -64,10 +64,9 @@ app.get("/collection/:collectionName/search", (req, res, next) => {
 });
 // Adding orders to mongodb
 app.post("/collection/:collectionName", (req, res, next) => {
-  // console.log(req.body);
   req.collection.insertOne(req.body, (e, results) => {
     if (e) return next(e);
-    res.send(results.ops);
+    res.send(results);
   });
 });
 
